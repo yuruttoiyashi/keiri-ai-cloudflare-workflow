@@ -1,0 +1,17 @@
+name = "keiri-ai-cloudflare-workflow"
+main = "worker/worker.ts"
+compatibility_date = "2026-06-10"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[ai]
+binding = "AI"
+remote = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "keiri-ai-workflow-db"
+database_id = "69aa2b7b-ad70-40f4-8230-71b2c1765c5a"

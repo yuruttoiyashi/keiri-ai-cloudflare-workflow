@@ -1,0 +1,32 @@
+{
+  "name": "keiri-ai-cloudflare-workflow",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "api:dev": "wrangler dev worker/worker.ts --local --persist-to .wrangler/state",
+    "api:dev:ai": "wrangler dev worker/worker.ts --remote",
+    "d1:create": "wrangler d1 create keiri-ai-workflow-db",
+    "d1:local": "wrangler d1 execute keiri-ai-workflow-db --local --file=./schema.sql",
+    "d1:remote": "wrangler d1 execute keiri-ai-workflow-db --remote --file=./schema.sql",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:worker": "wrangler deploy",
+    "deploy:pages": "wrangler pages deploy dist --project-name keiri-ai-cloudflare-workflow"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "typescript": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@cloudflare/workers-types": "latest",
+    "wrangler": "latest"
+  }
+}
